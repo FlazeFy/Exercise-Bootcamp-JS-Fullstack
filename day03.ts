@@ -2,7 +2,7 @@
 // Nomor 1
 console.log('Nomor 1');
 const number1: number = 9;
-for (let idx = 0; idx < number1; idx++) {
+for (let idx = 0; idx <= number1; idx++) {
     console.log(`${number1} x ${idx+1}`);
 }
 console.log('\n');
