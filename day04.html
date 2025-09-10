@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let products = [
+            { productName : 'Laptop', productStock : 12, productPrice : 3560000 },
+            { productName : 'Printer', productStock : 20, productPrice : 450000 },
+            { productName : 'Keyboard', productStock : 4, productPrice : 1200000 }
+        ]
+    
+        const mainMenu = `Menu Utama:\n1. Lihat Data\n2. Tambah Data\n3. Update Data\n4. Hapus Data\n5. Keluar\n\nPilih menu (1-5):`
+        const askProductName = 'Masukkan nama produk'
+        const askProductStock = 'Masukkan jumlah produk'
+        const askProductPrice = 'Masukkan harga produk'
+        const askBackMenu = 'Kembali ke menu utama?'
+    
+        let isOpen = true
+        while (isOpen) {
+            const selectedMenu = prompt(mainMenu)
+            if (!selectedMenu) { 
+                alert("Program ditutup")
+                break
+            }
+    
+            switch(selectedMenu){
+                case "1": // Lihat Data
+                    let listProductMessage = 'Daftar Produk:\n'
+
+                    products.forEach((dt,idx) => {
+                        listProductMessage += `${idx+1}. ${dt.productName} | Stock: ${dt.productStock} | Harga: Rp${dt.productPrice}\n`
+                    })
+                    alert(listProductMessage)
+
+                    if (!confirm(askBackMenu)) {
+                        alert("Program ditutup")
+                        isOpen = false
+                    }
+                    break
+    
+                case "2": // Tambah Data
+                    const productName = prompt(askProductName+":")
+                    const productStock = prompt(askProductStock+":")
+                    const productPrice = prompt(askProductPrice+":")
+    
+                    products.push({
+                        productName : productName,
+                        productStock : parseInt(productStock),
+                        productPrice : parseInt(productPrice)
+                    })
+    
+                    alert('Produk berhasil ditambahkan!')
+                    if (!confirm(askBackMenu)) {
+                        alert("Program ditutup")
+                        isOpen = false
+                    }
+                    break
+    
+                case "3": // Update Data
+                    let updateList = 'Masukkan nomor produk yang ingin diupdate:'
+                    let updateIdx = prompt(updateList) - 1
+    
+                    if (products[updateIdx]) {
+                        products[updateIdx].productName  = prompt(`${askProductName} yang ingin diupdate:`, products[updateIdx].productName)
+                        products[updateIdx].productStock = parseInt(prompt(`${askProductStock} yang ingin diupdate:`, products[updateIdx].productStock))
+                        products[updateIdx].productPrice = parseInt(prompt(`${askProductPrice} yang ingin diupdate:`, products[updateIdx].productPrice))
+                        alert("Produk berhasil diupdate!")
+                    }
+    
+                    if (!confirm(askBackMenu)) {
+                        alert("Program ditutup")
+                        isOpen = false
+                    }
+                    break
+    
+                case "4": // Hapus Data
+                    let deleteList = 'Pilih produk untuk dihapus:'
+                    let deleteIdx = prompt(deleteList) - 1
+    
+                    if (products[deleteIdx]) {
+                        products.splice(deleteIdx, 1)
+                        alert("Produk berhasil dihapus!")
+                    }
+    
+                    if (!confirm(askBackMenu)) {
+                        alert("Program ditutup")
+                        isOpen = false
+                    }
+                    break
+    
+                case "5": // Keluar
+                    alert("Program ditutup")
+                    isOpen = false
+                    break
+    
+                default:
+                    alert("Menu tidak valid. Silahkan pilih menu (1-5)")
+            }
+        }
+    </script>    
+</body>
+</html>
