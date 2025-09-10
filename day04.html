@@ -36,11 +36,6 @@
                         listProductMessage += `${idx+1}. ${dt.productName} | Stock: ${dt.productStock} | Harga: Rp${dt.productPrice}\n`
                     })
                     alert(listProductMessage)
-
-                    if (!confirm(askBackMenu)) {
-                        alert("Program ditutup")
-                        isOpen = false
-                    }
                     break
     
                 case "2": // Tambah Data
@@ -53,12 +48,7 @@
                         productStock : parseInt(productStock),
                         productPrice : parseInt(productPrice)
                     })
-    
                     alert('Produk berhasil ditambahkan!')
-                    if (!confirm(askBackMenu)) {
-                        alert("Program ditutup")
-                        isOpen = false
-                    }
                     break
     
                 case "3": // Update Data
@@ -71,11 +61,6 @@
                         products[updateIdx].productPrice = parseInt(prompt(`${askProductPrice} yang ingin diupdate:`, products[updateIdx].productPrice))
                         alert("Produk berhasil diupdate!")
                     }
-    
-                    if (!confirm(askBackMenu)) {
-                        alert("Program ditutup")
-                        isOpen = false
-                    }
                     break
     
                 case "4": // Hapus Data
@@ -86,11 +71,6 @@
                         products.splice(deleteIdx, 1)
                         alert("Produk berhasil dihapus!")
                     }
-    
-                    if (!confirm(askBackMenu)) {
-                        alert("Program ditutup")
-                        isOpen = false
-                    }
                     break
     
                 case "5": // Keluar
@@ -100,6 +80,11 @@
     
                 default:
                     alert("Menu tidak valid. Silahkan pilih menu (1-5)")
+            }
+
+            if (selectedMenu !== "5" && !confirm(askBackMenu)) {
+                alert("Program ditutup")
+                isOpen = false
             }
         }
     </script>    
