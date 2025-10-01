@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --roundedSM: 4px;
+            --roundedLG: 20px;
+
+            --spaceSM: 4px;
+            --spaceMD: 8px;
+            --spaceLG: 12px;
+            --spaceXL: 24px;
+
+            --textSM: 12px;
+            --textLG: 18px;
+
+            --primaryColor: #F4D04E;
+            --whiteColor: #FFF;
+            --greyColor: #6B6B6B;
+            --blackColor: #111111;
+        }
+        
+        body {
+            background: var(--primaryColor);
+            font-family: 'Inter', sans-serif;
+            padding-top: 10vh;
+        }
+        img:not(.user-holder img) {
+            width: 100%;
+            margin-bottom: var(--spaceXL);
+            border-radius: var(--roundedSM);
+        }
+
+        /* Box & Container */
+        .container-holder {
+            width: 260px;
+            height: 400px;
+            position: relative;
+            margin-inline: auto;
+        }
+        .container {
+            padding: var(--spaceXL);
+            background: var(--whiteColor);
+            width: 100%;
+            height: 100%;
+            border: 1.5px solid var(--blackColor);
+        }
+        .container-back {
+            position: absolute;
+            bottom: -58px;
+            right: -58px;
+            background: var(--blackColor);
+            z-index: -1;
+            width: 120%;
+            height: 112%; 
+        }
+        .container, .container-back {
+            border-radius: var(--roundedLG);
+        }
+        .chip {
+            background: var(--primaryColor);
+            font-weight: bold;
+            font-size: var(--textSM);
+            padding: var(--spaceSM) var(--spaceMD);
+            border-radius: var(--roundedSM);
+        }
+
+        /* Typography */
+        .text-secondary {
+            color: var(--greyColor);
+        }
+        p {
+            font-size: var(--textSM);
+            line-height: 1.5;
+        }
+        h3 {
+            font-size: var(--textLG);
+        }
+
+        /* User Holder */
+        .user-holder > * {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: calc(var(--spaceSM)/2);
+        }
+        .user-holder img {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+        }
+        .user-holder p {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-holder">
+        <div class="container">
+            <img src="./Blog Image.png">
+            <a class="chip">Learning</a>
+            <p>Published 21 Dec 2023</p>
+            <h3>HTML & CSS Foundation</h3>
+            <p class="text-secondary">These languages are the backbone of every website, defining structure, content, and presentation.</p>
+            <div class="user-holder">
+                <img src="./f6990abedd5d604a09d4a7a024323a45c11bb8ff.jpg">
+                <p>Greg Hooper</p>
+            </div>
+        </div>
+        <div class="container-back"></div>
+    </div>
+</body>
+</html>
