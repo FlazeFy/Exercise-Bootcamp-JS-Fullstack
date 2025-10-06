@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ECF2F8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto;
+            gap: 1.5rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+        .container {
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 20px;
+        }
+        .header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .header h4 {
+            margin: 0;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 0;
+            opacity: 0.7;
+        }
+
+        /* Typography */
+        h3 {
+            line-height: 1.4;
+        }
+        .white .text-secondary {
+            color: #48556A;
+        }
+        .purple .text-secondary, .dark .text-secondary, .grey .text-secondary {
+            color: #CFCFCF;
+        }
+
+        .container p:last-child {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        /* Colors */
+        .purple {
+            background: #733FC8;
+            color: #fff;
+            grid-column: span 2;
+        }
+        .gray {
+            background: #48556a;
+            color: #fff;
+        }
+        .dark {
+            background: #19212e;
+            color: #fff;
+            grid-column: span 2;
+        }
+
+        .white {
+            background: #fff;
+            color: #333333;
+        }
+        .right-grid {
+            grid-row: span 2;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .purple, .dark {
+                grid-column: span 2;
+            }
+            .right-grid {
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container-grid {
+                grid-template-columns: 1fr;
+            }
+            .purple, .dark {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-grid">
+        <div class="container purple">
+            <div class="header">
+                <img src="./19091510cc3bcbbfd5bb956496216eb814f870a4.png" alt="">
+                <div>
+                    <h4>Daniel Clifford</h4>
+                    <p class="text-secondary">Verified Graduate</p>
+                </div>
+            </div>
+            <h3>I received a job offer mid-course, and the subjects I learned were current, if not more so, in the company I joined. I honestly feel I got every penny’s worth.</h3>
+            <p class="text-secondary">“ I was an EMT for many years before I joined the bootcamp. I’ve been looking to make a transition and have heard some people who had an amazing experience here. I signed up for the free intro course and found it incredibly fun! I enrolled shortly thereafter. The next 12 weeks was the best - and most grueling - time of my life. Since completing the course, I’ve successfully switched careers, working as a Software Engineer at a VR startup. ”</p>
+        </div>
+        <div class="container gray">
+            <div class="header">
+                <img src="./81667d1e4d3b12dfd4c45cee01d0681fe6c836d1.png" alt="">
+                <div>
+                    <h4>Jonathan Walters</h4>
+                    <p class="text-secondary">Verified Graduate</p>
+                </div>
+            </div>
+            <h3>The team was very supportive and kept me motivated</h3>
+            <p class="text-secondary">“ I started as a total newbie with virtually no coding skills. I now work as a mobile engineer for a big company. This was one of the best investments I’ve made in myself. ”</p>
+        </div>
+        <div class="container white right-grid">
+            <div class="header">
+                <img src="./a9eee1c05cf50f5c600d090001701622d3429360.png" alt="">
+                <div>
+                    <h4>Kira Whittle</h4>
+                    <p class="text-secondary">Verified Graduate</p>
+                </div>
+            </div>
+            <h3>Such a life-changing experience. Highly recommended!</h3>
+            <p class="text-secondary">“ Before joining the bootcamp, I’ve never written a line of code. I needed some structure from professionals who can help me learn programming step by step. I was encouraged to enroll by a former student of theirs who can only say wonderful things about the program. The entire curriculum and staff did not disappoint. They were very hands-on and I never had to wait long for assistance. The agile team project, in particular, was outstanding. It took my learning to the next level in a way that no tutorial could ever have. In fact, I’ve often referred to it during interviews as an example of my development experience. It certainly helped me land a job as a full-stack developer after receiving multiple offers. 100% recommend! ”</p>
+        </div>
+
+        <div class="container white">
+            <div class="header">
+                <img src="./eb80fa4c94d9f199bf3743fd580f5c07bbd2f140.png" alt="">
+                <div>
+                    <h4>Jeanette Harmon</h4>
+                    <p class="text-secondary">Verified Graduate</p>
+                </div>
+            </div>
+            <h3>An overall wonderful and rewarding experience</h3>
+            <p class="text-secondary">“ Thank you for the wonderful experience! I now have a job I really enjoy, and make a good living while doing something I love. ”</p>
+        </div>
+
+        <div class="container dark">
+            <div class="header">
+                <img src="./f67a01f8af135b5b67817a9d22182dc2ddce2187.png" alt="">
+                <div>
+                    <h4>Patrick Abrams</h4>
+                    <p class="text-secondary">Verified Graduate</p>
+                </div>
+            </div>
+            <h3>Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and learning from their experiences was easy.</h3>
+            <p class="text-secondary">“ The staff seem genuinely concerned about my progress which I find really refreshing. The program gave me the confidence necessary to be able to go out in the world and present myself as a capable junior developer. The standard is above the rest. You will get the personal attention you need from an incredible community of smart and amazing people. ”</p>
+        </div>
+    </div>
+</body>
+</html>

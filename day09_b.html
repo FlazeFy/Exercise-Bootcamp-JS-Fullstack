@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/328b2b4f87.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        :root {
+            --roundedSM: 4px;
+            --roundedMD: 8px;
+            --roundedXMD: 10px;
+            --roundedLG: 20px;
+
+            --spaceSM: 4px;
+            --spaceMD: 8px;
+            --spaceLG: 12px;
+            --spaceXL: 24px;
+
+            --textSM: 13px;
+            --textLG: 18px;
+            --textXLG: 32px;
+
+            --primaryColor: #F2EAE2;
+            --whiteColor: #FFF;
+            --greyColor: #6B6B6B;
+            --successColor: #3D8168;
+            --blackColor: #111111;
+        }
+
+        body {
+            background: var(--primaryColor);
+            font-family: 'Inter', sans-serif;
+            padding: 15vh 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Box & Container */
+        .container {
+            background: var(--whiteColor);
+            border-radius: var(--roundedLG);
+            overflow: hidden;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+        }
+        .container img {
+            height: 240px;
+            object-fit: cover;
+            border-radius: var(--roundedXMD) var(--roundedXMD) 0 0;
+        }
+        .container-body {
+            padding: var(--spaceXL);
+            background: var(--whiteColor);
+        }
+        .container-body .text-secondary {
+            line-height: var(--spaceXL);
+        }
+        .chip {
+            font-size: var(--textSM);
+            text-transform: uppercase;
+            letter-spacing: var(--spaceSM);
+            color: var(--greyColor);
+        }
+        .btn-submit {
+            background: var(--successColor);
+            border-radius: var(--roundedMD);
+            width: 100%;
+            display: block;
+            text-align: center;
+            padding: var(--spaceLG);
+            color: var(--whiteColor);
+            font-weight: 600;
+            box-sizing: border-box;
+        }
+
+        /* Typography */
+        h3 {
+            font-size: var(--textXLG);
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: var(--spaceLG);
+            font-family: 'Cormorant';
+        }
+        p {
+            font-size: var(--textSM);
+            line-height: 1.5;
+            color: var(--greyColor);
+            margin-top: 0;
+            margin-bottom: var(--spaceLG);
+        }
+
+        /* Price Holder */
+        .price-holder {
+            margin-bottom: var(--spaceLG);
+        }
+        .price-holder > * {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: var(--spaceMD);
+        }
+        .price-holder .current-price {
+            font-size: var(--textXLG);
+            font-weight: 700;
+            color: var(--successColor);
+            font-family: 'Cormorant';
+        }
+        .price-holder .real-price {
+            font-weight: 500;
+            font-size: var(--textSM);
+            text-decoration: line-through;
+            color: var(--greyColor);
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+                align-items: stretch;
+                max-width: 800px;
+            }
+
+            .container img {
+                width: 50%;
+                height: auto;
+                border-radius: var(--roundedXMD) 0 0 var(--roundedXMD);
+            }
+
+            .container-body {
+                width: 50%;
+                border-radius: 0 var(--roundedXMD) var(--roundedXMD) 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./ae454123eb2ee7736de7d5d296876bd9559b4050.png" alt="Perfume">
+        <div class="container-body">
+            <p class="chip">Perfume</p>
+            <h3>Gabrielle Essence Eau De Parfum</h3>
+            <p class="text-secondary">A floral, solar and voluptuous interpretation composed by Olivier Polge, Perfumer-Creator for the House of CHANEL.</p>
+            <div class="price-holder">
+                <p class="current-price">$149.99</p>
+                <p class="real-price">$169.99</p>
+            </div>
+            <a class="btn-submit"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
+        </div>
+    </div>
+</body>
+</html>
