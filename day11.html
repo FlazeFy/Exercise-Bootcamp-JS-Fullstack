@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            max-width: 720px;
+            margin-inline: auto;
+        }
+        .form {
+            max-width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-inline: auto;
+            margin-bottom: 20px;
+        }
+        .form input {
+            margin-bottom: 4px;
+        }
+        table {
+            width: 100%;
+        }
+        table thead {
+            text-align: center;
+        }
+        table thead td {
+            font-weight: bold;
+        }
+        table td {
+            padding: 6px;
+            text-align: center;
+        }
+        .edit-row {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <label>Nama</label>
+            <input placeholder="Masukkan Nama" id="nama-input" type="text">
+            <label>Usia</label>
+            <input placeholder="Masukkan Usia" id="usia-input" type="number" min="1">
+            <label>Email</label>
+            <input placeholder="Masukkan Email" id="email-input" type="email">
+            <button onclick="submitForm()">Submit</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>No</td>
+                    <td>Nama</td>
+                    <td>Usia</td>
+                    <td>Email</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody id="user-table"></tbody>
+        </table>
+    </div>
+    
+    <script>
+        let listUser = []
+    
+        function renderTable() {
+            const tableBody = document.getElementById("user-table")
+            tableBody.innerHTML = ""
+        
+            listUser.forEach((dt, idx) => {
+                tableBody.innerHTML += `
+                    <tr id="view_row_${idx}">
+                        <td>${idx + 1}</td>
+                        <td>${dt.nama}</td>
+                        <td>${dt.usia}</td>
+                        <td>${dt.email}</td>
+                        <td>
+                            <button onclick="editUser(${idx})">Edit</button>
+                            <button onclick="deleteUser(${idx})">Delete</button>
+                        </td>
+                    </tr>
+                    <tr id="edit_row_${idx}" class="edit-row">
+                        <td>${idx + 1}</td>
+                        <td><input id="edit_nama_${idx}" type="text" value="${dt.nama}"></td>
+                        <td><input id="edit_usia_${idx}" type="number" value="${dt.usia}"></td>
+                        <td><input id="edit_email_${idx}" type="email" value="${dt.email}"></td>
+                        <td>
+                        <button onclick="cancelEdit(${idx})">Cancel</button>
+                        <button onclick="saveUser(${idx})">Save</button>
+                        </td>
+                    </tr>
+                `
+            })
+        }
+    
+        function submitForm() {
+            const namaInput = document.getElementById("nama-input")
+            const usiaInput = document.getElementById("usia-input")
+            const emailInput = document.getElementById("email-input")
+        
+            if (!namaInput.value || !usiaInput.value || !emailInput.value) {
+                alert("Semua field wajib diisi!")
+                return
+            }
+        
+            listUser.push({
+                nama: namaInput.value,
+                usia: usiaInput.value,
+                email: emailInput.value
+            })
+        
+            namaInput.value = ""
+            usiaInput.value = ""
+            emailInput.value = ""
+        
+            renderTable()
+        }
+    
+        function editUser(idx) {
+            document.getElementById(`view_row_${idx}`).style.display = "none"
+            document.getElementById(`edit_row_${idx}`).style.display = "table-row"
+        }
+    
+        function cancelEdit(idx) {
+            document.getElementById(`edit_row_${idx}`).style.display = "none"
+            document.getElementById(`view_row_${idx}`).style.display = "table-row"
+        }
+    
+        function saveUser(idx) {
+            const nama = document.getElementById(`edit_nama_${idx}`).value
+            const usia = document.getElementById(`edit_usia_${idx}`).value
+            const email = document.getElementById(`edit_email_${idx}`).value
+        
+            listUser[idx] = {nama, usia, email}
+            renderTable()
+        }
+    
+        function deleteUser(idx) {
+            listUser.splice(idx, 1)
+            renderTable()
+        }
+    </script>
+</body>
+</html>
