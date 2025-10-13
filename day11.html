@@ -9,6 +9,10 @@
         .container {
             max-width: 720px;
             margin-inline: auto;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 5vh;
         }
         .form {
             max-width: 200px;
@@ -41,6 +45,7 @@
 </head>
 <body>
     <div class="container">
+        <h3>Management Data</h3>
         <div class="form">
             <label>Nama</label>
             <input placeholder="Masukkan Nama" id="nama-input" type="text">
@@ -66,7 +71,7 @@
     </div>
     
     <script>
-        let listUser = []
+        const listUser = []
     
         function renderTable() {
             const tableBody = document.getElementById("user-table")
