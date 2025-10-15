@@ -10,18 +10,23 @@ interface TodoItem {
 
 interface OrganismsListTodoProps {
     listTodo: TodoItem[]
+    handleDeleteTodo: (idx: number) => void
+    handleUpdateTodo: (idx: number, checked: boolean, text: string) => void
+    handleToggleChecked: (idx: number) => void
 }
 
-const OrganismsListTodo: React.FC<OrganismsListTodoProps> = ({ listTodo }) => {
+const OrganismsListTodo: React.FC<OrganismsListTodoProps> = ({ listTodo, handleDeleteTodo, handleUpdateTodo, handleToggleChecked }) => {
     return (
         <div style={{textAlign:"center"}}>
             <div className='container'>
                 {
-                    listTodo.map((item, index) => <MoleculeTodoBox key={index} text={item.text} checked={item.checked} />)
+                    listTodo.map((item, index) => <MoleculeTodoBox key={index} text={item.text} checked={item.checked} 
+                        onClickDelete={()=>handleDeleteTodo(index)} onSaveEdit={(text) => handleUpdateTodo(index, item.checked, text)}
+                        onToggleChecked={() => handleToggleChecked(index)}/>)
                 }
                 <br></br>
                 <div className='inline-toolbar'>
-                    <AtomText type="sub-content" text="5 items left"/>
+                    <AtomText type="sub-content" text={`${listTodo.filter(item => !item.checked).length} items left`}/>
                     <div style={{display:'flex',alignItems:'center',gap:'6px',fontWeight:"bold"}}>
                         <AtomButton type='btn-no-border' text='All' extraClass="active"/>
                         <AtomButton type='btn-no-border' text='Active'/>

@@ -123,12 +123,15 @@ input:focus, input:active {
   align-items: center;
   margin-inline: 30px;
 }
+.border {
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 4px 8px;
+}
 
 /* Button */
 .btn-link {
   color: #9495A5;
-  padding: 6px 8px;
-  font-size: 14px;
   border-bottom: 1.5px solid transparent;
 }
 .btn-link.active {
@@ -139,4 +142,25 @@ input:focus, input:active {
 }
 .btn.btn-link {
   cursor: pointer;
+}
+.btn-danger {
+  background: #ff0071;
+}
+.btn-warning {
+  background: #ff683e;
+}
+.btn-danger, .btn-warning {
+  color: #FFF;
+  border-radius: 10px;
+}
+.btn {
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-transition: all 0.3;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.btn:not(.no-animation):hover {
+  transform: scale(1.05);
 }
