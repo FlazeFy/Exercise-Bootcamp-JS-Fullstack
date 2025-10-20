@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Body / Main Layout */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: 'Josefin Sans', 'Gill Sans', 'Century Gothic', 'Trebuchet MS', sans-serif;
+  min-height: 100vh;
+  background-color: white;
+  position: relative;
+}
+
+/* Typography */
+h1 {
+  font-weight: 700;
+  font-size: 48px;
+  letter-spacing: 9px;
+}
+h2 {
+  font-size: 32px;
+  letter-spacing: 7px;
+}
+h3 {
+  font-size: 24px;
+  letter-spacing: 4px;
+}
+h4 {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+h1, h2, h3 {
+  text-transform: uppercase;
+  line-height: 100%;
+}
+h2, h3, h4 {
+  font-weight: 600;
+}
+p {
+  font-size: 18px;
 }
