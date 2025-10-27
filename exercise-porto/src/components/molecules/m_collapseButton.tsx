@@ -1,27 +1,30 @@
-"use client"
-import { useState } from 'react'
-import AtomText from '../atoms/a_text';
+import AtomText from '../atoms/a_text'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface MoleculesCollapseButtonProps {
     title: string
-    content: string
+    total_project: number
+    icon: any
+    isActive: boolean
+    onClick: () => void
 }
 
-const MoleculesCollapseButton: React.FC<MoleculesCollapseButtonProps> = ({ title, content }) => {
-    const [isOpen, setIsOpen] = useState(false)
+const MoleculesCollapseButton: React.FC<MoleculesCollapseButtonProps> = ({ title, total_project, icon, isActive, onClick }) => {
+    const classHolder = "border border-gray-200 p-4 rounded-2xl"
 
     return (
-        <div className="border-b border-gray-200 py-4">
-            <button onClick={() => setIsOpen(!isOpen)} className="w-full text-left flex justify-between items-center text-lg font-semibold">
-                <AtomText type='content-title' text={title}/>
+        <div className={isActive ? `${classHolder} shadow-xl mb-5` : `${classHolder} mb-3`}>
+            <button onClick={onClick} className="w-full text-left flex text-lg">
+                <div className='rounded-full bg-red-600 py-3 px-4 my-2 ml-3 mr-5 text-white'>
+                    <FontAwesomeIcon icon={icon} />  
+                </div>              
+                <div>
+                    <AtomText type='content-title' text={title}/>
+                    <AtomText type='content' text={total_project.toString()+ " projects"}/>
+                </div>
             </button>
-            {
-                isOpen && (
-                    <div className="mt-2 text-gray-600 text-sm">{content}</div>
-                )
-            }
         </div>
-    );
-};
+    )
+}
 
-export default MoleculesCollapseButton;
+export default MoleculesCollapseButton

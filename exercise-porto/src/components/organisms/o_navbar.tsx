@@ -16,7 +16,7 @@ const OrganismsNavbar: React.FC<OrganismsNavbarProps> = ({ menuItem, appName }) 
             <div className="text-xl font-semibold italic">{appName}</div>
             <ul className="flex space-x-8">
                 {
-                    menuItem.map((dt, idx) => <li>{dt.title}</li> )
+                    menuItem.map((dt, idx) => <li key={idx}>{dt.title}</li> )
                 }
             </ul>
             <div className="flex items-center space-x-2 text-gray-700">
