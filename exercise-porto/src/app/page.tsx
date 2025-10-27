@@ -1,4 +1,5 @@
 import AtomBreakline from "@/components/atoms/a_breakline";
+import MoleculeFooter from "@/components/molecules/m_footer";
 import OrganismsLatestWork from "@/components/organisms/o_latest_work";
 import OrganismsNavbar from "@/components/organisms/o_navbar";
 import OrganismsSkill from "@/components/organisms/o_skill";
@@ -69,6 +70,8 @@ export default function Home() {
       <OrganismsSkill skillItem={skillItem}/>
       <AtomBreakline length={4}/>
       <OrganismsLatestWork workItem={workItem}/>
+      <AtomBreakline length={4}/>
+      <MoleculeFooter appName="FlazeFy"/>
     </div>
   );
 }
