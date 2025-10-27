@@ -9,6 +9,16 @@ body {
   position: relative;
 }
 
+/* Button */
+.btn {
+  cursor: pointer;
+}
+a.btn-link {
+  color: orange;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
 /* Typography */
 h1 {
   font-weight: 700;
@@ -36,4 +46,34 @@ h2, h3, h4 {
 }
 p {
   font-size: 18px;
+}
+
+/* Work Box */
+.work-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  padding: 1rem;
+}
+.work-box {
+  min-width: 40vw;
+  height: 25vw;
+  border-radius: 1rem;
+  flex-shrink: 0;
+  color: white;
+  position: relative;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.work-box:first-child {
+  margin-left: 5vw;
+}
+.work-box:hover {
+  transform: scale(1.05);
+}
+.work-box-content {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 1rem;
 }

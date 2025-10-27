@@ -1,4 +1,5 @@
 import AtomBreakline from "@/components/atoms/a_breakline";
+import OrganismsLatestWork from "@/components/organisms/o_latest_work";
 import OrganismsNavbar from "@/components/organisms/o_navbar";
 import OrganismsSkill from "@/components/organisms/o_skill";
 import OrganismsWelcome from "@/components/organisms/o_welcome";
@@ -37,6 +38,24 @@ export default function Home() {
     }
   ];
 
+  const workItem = [
+    { 
+      title: "PinMarker",
+      content: "Location marker apps",
+      imagePath: './'
+    },
+    {
+      title: "GudangKu",
+      content: "Inventory management apps",
+      imagePath: './'
+    },
+    {
+      title: "MyRide",
+      content: "Vehicle & trip management apps",
+      imagePath: './'
+    }
+  ];
+
   return (
     <div className="">
       <OrganismsNavbar menuItem={menuItem} appName="FlazeFy"/>
@@ -48,6 +67,8 @@ export default function Home() {
       />
       <AtomBreakline length={4}/>
       <OrganismsSkill skillItem={skillItem}/>
+      <AtomBreakline length={4}/>
+      <OrganismsLatestWork workItem={workItem}/>
     </div>
   );
 }
