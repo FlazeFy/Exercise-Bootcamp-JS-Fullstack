@@ -1,6 +1,7 @@
 import AtomBreakline from "@/components/atoms/a_breakline";
 import MoleculeFooter from "@/components/molecules/m_footer";
 import OrganismsContact from "@/components/organisms/o_contact";
+import OrganismsFeedback from "@/components/organisms/o_feedback";
 import OrganismsLatestWork from "@/components/organisms/o_latest_work";
 import OrganismsNavbar from "@/components/organisms/o_navbar";
 import OrganismsSkill from "@/components/organisms/o_skill";
@@ -124,6 +125,27 @@ export default function Home() {
     } 
   ]
 
+  const feedbackItem = [
+    {
+      name: 'Jhon Doe',
+      role: 'Product Manager',
+      image: '/profile_pic.jpg',
+      feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    },
+    {
+      name: 'Adam Albert',
+      role: 'Creative Manager',
+      image: '/profile_pic.jpg',
+      feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    },
+    {
+      name: 'Richard Kyle',
+      role: 'Marketing Manager',
+      image: '/profile_pic.jpg',
+      feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    }
+  ]
+
   return (
     <div className="">
       <OrganismsNavbar menuItem={menuItem} appName="FlazeFy"/>
@@ -137,9 +159,11 @@ export default function Home() {
       <AtomBreakline length={4}/>
       <OrganismsSkill skillItem={skillItem}/>
       <AtomBreakline length={4}/>
+      <OrganismsWorkExperience workExperienceItem={workExperienceItem}/>
+      <AtomBreakline length={4}/>
       <OrganismsLatestWork workItem={workItem}/>
       <AtomBreakline length={4}/>
-      <OrganismsWorkExperience workExperienceItem={workExperienceItem}/>
+      <OrganismsFeedback feedbackItem={feedbackItem}/>
       <AtomBreakline length={4}/>
       <OrganismsContact contactItem={contactItem} address="South Jakarta, DKI Jakarta" email="flazen.edu@gmail.com" bodyEmail="Hii, Leo. I'm ..."/>
       <AtomBreakline length={4}/>
