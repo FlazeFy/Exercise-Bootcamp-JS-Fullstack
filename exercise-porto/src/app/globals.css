@@ -9,6 +9,11 @@ body {
   position: relative;
 }
 
+/* Background */
+.bg-primary {
+  background: #f8f7f2;
+}
+
 /* Button */
 .btn {
   cursor: pointer;
@@ -17,6 +22,15 @@ a.btn-link {
   color: orange;
   font-weight: 600;
   letter-spacing: 1px;
+}
+.nav-link {
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  padding: 6px 12px;
+}
+.nav-link:hover {
+  border: 2px solid #2C7A7B;
 }
 
 /* Typography */
