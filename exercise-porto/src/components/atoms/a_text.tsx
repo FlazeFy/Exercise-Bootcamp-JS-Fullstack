@@ -2,7 +2,7 @@ import React from 'react'
 
 interface AtomText {
   type: string
-  text: string
+  text: any
   extraClass?: string
 }
 

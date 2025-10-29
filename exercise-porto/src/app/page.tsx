@@ -1,5 +1,6 @@
 import AtomBreakline from "@/components/atoms/a_breakline";
 import MoleculeFooter from "@/components/molecules/m_footer";
+import OrganismsContact from "@/components/organisms/o_contact";
 import OrganismsLatestWork from "@/components/organisms/o_latest_work";
 import OrganismsNavbar from "@/components/organisms/o_navbar";
 import OrganismsSkill from "@/components/organisms/o_skill";
@@ -57,6 +58,21 @@ export default function Home() {
     }
   ];
 
+  const contactItem = [
+    {
+      title: "LinkedIn",
+      url: "https://www.linkedin.com/in/leonardho-rante-sitanggang/"
+    },
+    {
+      title: "Github",
+      url: "https://github.com/FlazeFy"
+    },
+    {
+      title: "Instagram",
+      url: "https://www.instagram.com/leonardhorante_08/"
+    }
+  ]
+
   return (
     <div className="">
       <OrganismsNavbar menuItem={menuItem} appName="FlazeFy"/>
@@ -70,6 +86,8 @@ export default function Home() {
       <OrganismsSkill skillItem={skillItem}/>
       <AtomBreakline length={4}/>
       <OrganismsLatestWork workItem={workItem}/>
+      <AtomBreakline length={4}/>
+      <OrganismsContact contactItem={contactItem} address="South Jakarta, DKI Jakarta" email="flazen.edu@gmail.com" bodyEmail="Hii, Leo. I'm ..."/>
       <AtomBreakline length={4}/>
       <MoleculeFooter appName="FlazeFy"/>
     </div>
