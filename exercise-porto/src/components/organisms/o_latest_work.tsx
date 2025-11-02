@@ -17,8 +17,8 @@ interface OrganismsLatestWorkProps {
 
 const OrganismsLatestWork: React.FC<OrganismsLatestWorkProps> = ({ workItem }) => {
     return (
-        <div className=" bg-white py-8">
-            <div className='flex flex-wrap -mx-4 p-8 lg:p-20 text-center md:text-start'>
+        <div className=" bg-white py-8" id="latestWorkSection">
+            <div className='flex flex-wrap -mx-4 p-8 py-0 lg:p-20 text-center md:text-start'>
                 <div className="w-full md:w-1/2 px-4">
                     <AtomText type='title' text='My Latest Works'/>
                     <AtomBreakline length={1}/>

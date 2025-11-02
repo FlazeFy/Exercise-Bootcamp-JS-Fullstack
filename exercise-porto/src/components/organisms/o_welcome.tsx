@@ -14,7 +14,7 @@ interface OrganismsWelcomeProps {
 
 const OrganismsWelcome: React.FC<OrganismsWelcomeProps> = ({ username, job, yearsExp, shortBio, educationInfo, profilePic }) => {
     return (
-        <div className='flex flex-wrap pt-20 lg:p-20 bg-primary text-center lg:text-start'>
+        <div className='flex flex-wrap pt-20 lg:p-20 bg-primary text-center lg:text-start' id='aboutSection'>
             <div className='w-full lg:w-1/3 mb-6 px-4'>
                 <div className='flex flex-col justify-between xl:h-100'>
                     <div className='mb-5'>

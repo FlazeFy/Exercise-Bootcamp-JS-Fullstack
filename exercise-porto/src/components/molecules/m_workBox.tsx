@@ -9,11 +9,13 @@ interface MoleculesWorkBoxProps {
 
 const MoleculesWorkBox: React.FC<MoleculesWorkBoxProps> = ({ title, content, imagePath }) => {
     return (
-        <div className={`work-box bg-orange-500 bg-cover bg-center`} style={{backgroundImage:imagePath}}>
+        <div className="relative work-box bg-cover bg-center min-w-[65vw] min-h-[45vw] lg:min-w-[50vw] lg:min-h-[25vw] rounded-2xl"
+            style={{ backgroundImage: `url(${imagePath})` }}>
+            <div className="absolute inset-0 bg-black/50 rounded-2xl"></div>
             <img src={imagePath} alt={title} className="hidden" />
-            <div className="work-box-content">
-                <AtomText type='content-title' text={title}/>
-                <AtomText type='content' text={content}/>
+            <div className="relative z-10 work-box-content p-6 text-white">
+                <AtomText type="content-title" text={title} />
+                <AtomText type="content" text={content} />
             </div>
         </div>
     )

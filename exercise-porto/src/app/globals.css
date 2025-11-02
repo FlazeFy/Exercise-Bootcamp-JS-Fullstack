@@ -8,6 +8,9 @@ body {
   background-color: white;
   position: relative;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 /* Background */
 .bg-primary {
@@ -70,8 +73,6 @@ p {
   padding: 1rem;
 }
 .work-box {
-  min-width: 40vw;
-  height: 25vw;
   border-radius: 1rem;
   flex-shrink: 0;
   color: white;

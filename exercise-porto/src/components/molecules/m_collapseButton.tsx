@@ -14,8 +14,8 @@ const MoleculesCollapseButton: React.FC<MoleculesCollapseButtonProps> = ({ title
 
     return (
         <div className={isActive ? `${classHolder} shadow-xl mb-5` : `${classHolder} mb-3`}>
-            <button onClick={onClick} className="w-full text-left flex text-lg">
-                <div className='rounded-full bg-red-600 py-3 px-4 my-2 ml-3 mr-5 text-white'>
+            <button onClick={onClick} className="w-full text-left flex text-lg items-center">
+                <div className="flex-shrink-0 flex items-center justify-center w-13 h-13 rounded-full bg-red-600 text-white mr-5">
                     <FontAwesomeIcon icon={icon} />  
                 </div>              
                 <div>

@@ -15,11 +15,11 @@ interface OrganismsFeedbackProps {
 
 const OrganismsFeedback: React.FC<OrganismsFeedbackProps> = ({ feedbackItem }) => {
     return (
-        <div className='py-30 -mx-4 my-3 px-20 bg-primary text-center'>
+        <div className='py-30 -mx-4 my-3 p-8 lg:p-20 bg-primary text-center'>
             <AtomText type='title' text='What they thinks?' />
             <AtomBreakline length={1}/>
             <AtomText type='content' text="Here's some feedback I got from my colleague"/>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 h-[310px] items-end'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mt-20 min-h-[400px] items-end'>
                 {
                     feedbackItem.map((dt, idx) => (
                         <MoleculesFeedbackBox key={idx} idx={idx} name={dt.name} role={dt.role} image={dt.image} feedback={dt.feedback}/>

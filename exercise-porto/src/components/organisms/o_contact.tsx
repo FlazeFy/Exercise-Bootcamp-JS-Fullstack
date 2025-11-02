@@ -20,23 +20,21 @@ interface OrganismsContactProps {
 
 const OrganismsContact: React.FC<OrganismsContactProps> = ({ contactItem, address, email, bodyEmail }) => {
     return (
-        <div className=" bg-white py-8">
-            <div className='flex flex-wrap -mx-4 my-3 px-20'>
-                <div className="w-full sm:w-full md:w-7/12 lg:w-8/12 px-4">
-                    <AtomText type='title' text="Let's make something amazing together"/>
-                    <AtomBreakline length={3}/>
-                    <AtomText type='sub-title' text={<>Start by <AtomButton type='link' text="saying hi" url={`mailto:${email}?subject=Hello&body=${bodyEmail}`}/></>}/>
-                </div>
-                <div className="w-full sm:w-full md:w-5/12 lg:w-4/12 px-4 items-center justify-start">
-                    <AtomText type='sub-title-small' text='Information'/>
-                    <AtomText type='content-title' text={<><FontAwesomeIcon icon={faLocationDot}/>{address}</>}/>
-                    <AtomBreakline length={1}/>
-                    {
-                        contactItem.map((dt,idx) => (
-                            <AtomButton key={idx} type='link' text={dt.title} extraClass="block mb-4" url={dt.url}/>
-                        ))
-                    }
-                </div>
+        <div className=" bg-white p-10 pb-20 lg:px-20 text-center md:text-start flex flex-wrap -mx-4" id="contactSection">
+            <div className="w-full sm:w-full md:w-7/12 lg:w-8/12">
+                <AtomText type='title' text="Let's make something amazing together"/>
+                <AtomBreakline length={3}/>
+                <AtomText type='sub-title' text={<>Start by <AtomButton type='link' text="saying hi" url={`mailto:${email}?subject=Hello&body=${bodyEmail}`}/></>}/>
+            </div>
+            <div className="w-full sm:w-full md:w-5/12 lg:w-4/12 items-center justify-start">
+                <AtomText type='sub-title-small' text='Information'/>
+                <AtomText type='content-title' extraClass='mt-10' text={<><FontAwesomeIcon icon={faLocationDot}/>{address}</>}/>
+                <AtomBreakline length={1}/>
+                {
+                    contactItem.map((dt,idx) => (
+                        <AtomButton key={idx} type='link' text={dt.title} extraClass="mb-2 inline mr-5 md:block md:mr-0" url={dt.url}/>
+                    ))
+                }
             </div>
         </div>
     )

@@ -12,9 +12,9 @@ import { faDatabase, faMobileScreen, faPaintBrush } from '@fortawesome/free-soli
 export default function Home() {
   const menuItem = [
     { title: "About Me", target: "#aboutSection" },
+    { title: "Skill", target: "#skillSection" },
     { title: "Experience", target: "#experienceSection" },
-    { title: "Education", target: "#educationSection" },
-    { title: "Portfolio", target: "#portfolioSection" }
+    { title: "Latest Work", target: "#latestWorkSection" }
   ]
   
   const skillItem = [
@@ -45,17 +45,17 @@ export default function Home() {
     { 
       title: "PinMarker",
       content: "Location marker apps",
-      imagePath: './'
+      imagePath: '/landscape.jpg'
     },
     {
       title: "GudangKu",
       content: "Inventory management apps",
-      imagePath: './'
+      imagePath: '/landscape.jpg'
     },
     {
       title: "MyRide",
       content: "Vehicle & trip management apps",
-      imagePath: './'
+      imagePath: '/landscape.jpg'
     }
   ];
 
@@ -166,7 +166,6 @@ export default function Home() {
       <OrganismsFeedback feedbackItem={feedbackItem}/>
       <AtomBreakline length={4}/>
       <OrganismsContact contactItem={contactItem} address="South Jakarta, DKI Jakarta" email="flazen.edu@gmail.com" bodyEmail="Hii, Leo. I'm ..."/>
-      <AtomBreakline length={4}/>
       <MoleculeFooter appName="FlazeFy"/>
     </div>
   );

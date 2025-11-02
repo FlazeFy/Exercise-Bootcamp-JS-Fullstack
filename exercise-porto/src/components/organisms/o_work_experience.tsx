@@ -18,7 +18,7 @@ interface OrganismsWorkExperienceProps {
 
 const OrganismsWorkExperience: React.FC<OrganismsWorkExperienceProps> = ({ workExperienceItem }) => {
     return (
-        <div className="p-8 lg:p-20 -mx-4 my-3 bg-primary text-center md:text-start">
+        <div className="p-10 lg:p-20 -mx-4 my-3 bg-primary text-center md:text-start" id='experienceSection'>
             <AtomText type='title' text="My Work Experience" extraClass='text-center my-20'/>
             {
                 workExperienceItem.map((dt, idx)=> (
