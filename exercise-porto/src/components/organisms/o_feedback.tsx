@@ -19,7 +19,7 @@ const OrganismsFeedback: React.FC<OrganismsFeedbackProps> = ({ feedbackItem }) =
             <AtomText type='title' text='What they thinks?' />
             <AtomBreakline length={1}/>
             <AtomText type='content' text="Here's some feedback I got from my colleague"/>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-20'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 h-[310px] items-end'>
                 {
                     feedbackItem.map((dt, idx) => (
                         <MoleculesFeedbackBox key={idx} idx={idx} name={dt.name} role={dt.role} image={dt.image} feedback={dt.feedback}/>

@@ -10,11 +10,14 @@ interface MoleculesFeedbackBoxProps {
 }
 
 const MoleculesFeedbackBox: React.FC<MoleculesFeedbackBoxProps> = ({ image, name, feedback, role, idx }) => {
+    const positionClass =
+        idx === 1 ? 'self-start' : 'self-end'
+
     return (
-        <div className={`relative bg-white shadow-lg rounded-3xl p-8 flex flex-col items-center transition-all duration-500 ${idx === 1 ? 'md:-mt-8 z-10' : 'md:mt-8'}`}>
+        <div className={`relative bg-white shadow-lg rounded-3xl p-8 flex flex-col items-center transition-all duration-500 h-[280px] ${positionClass}`}>
             <img src={image} alt={name} className='w-20 h-20 rounded-full object-cover -mt-14 border-4 border-white shadow-md'/>
             <p className='mt-6 text-gray-600 italic text-sm md:text-base'>“{feedback}”</p>
-            <div className='mt-6'>
+            <div className='mt-6 text-center'>
                 <AtomText type='sub-title-small' text={name} />
                 <AtomText type='content-title' text={role} />
             </div>

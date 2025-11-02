@@ -18,13 +18,13 @@ interface OrganismsLatestWorkProps {
 const OrganismsLatestWork: React.FC<OrganismsLatestWorkProps> = ({ workItem }) => {
     return (
         <div className=" bg-white py-8">
-            <div className='flex flex-wrap -mx-4 px-20'>
+            <div className='flex flex-wrap -mx-4 p-8 lg:p-20 text-center md:text-start'>
                 <div className="w-full md:w-1/2 px-4">
                     <AtomText type='title' text='My Latest Works'/>
                     <AtomBreakline length={1}/>
                     <AtomText type='content' text='You can see my latest work for each of my skill'/>
                 </div>
-                <div className="w-full md:w-1/2 px-4 flex items-center justify-end">
+                <div className="w-full md:w-1/2 px-4 flex items-center justify-center mt-5 md:justify-end md:mt-0">
                     <AtomButton type='link' text='Explore More Works!'/>
                 </div>
             </div>

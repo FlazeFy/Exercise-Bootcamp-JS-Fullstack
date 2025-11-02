@@ -14,23 +14,25 @@ interface OrganismsWelcomeProps {
 
 const OrganismsWelcome: React.FC<OrganismsWelcomeProps> = ({ username, job, yearsExp, shortBio, educationInfo, profilePic }) => {
     return (
-        <div className='flex flex-wrap -mx-4 h-[95vh] p-20 bg-primary'>
-            <div className='w-full sm:w-1/2 lg:w-1/3 px-4 mb-6'>
-                <div className='flex flex-col justify-between h-[80vh]'>
-                    <div>
+        <div className='flex flex-wrap pt-20 lg:p-20 bg-primary text-center lg:text-start'>
+            <div className='w-full lg:w-1/3 mb-6 px-4'>
+                <div className='flex flex-col justify-between xl:h-100'>
+                    <div className='mb-5'>
                         <AtomText type='title' text={`Hi There, I'm ${username}`}/>
                         <AtomText type='sub-title' text={`A ${job}`}/>
                     </div>
-                    <MoleculesTextNumber firstText='years' secondText='experience' total={yearsExp}/>
+                    <div className="flex justify-center lg:justify-start">
+                        <MoleculesTextNumber firstText='years' secondText='experience' total={yearsExp}/>
+                    </div>
                 </div>
             </div>
-            <div className='w-full sm:w-1/2 lg:w-1/3 px-4 mb-6'>
-                <div className='flex items-center justify-center min-h-screen'>
-                    <AtomImage path={profilePic} width='100' height='100' className="rounded-full shadow-lg h-100 w-100"/>
+            <div className='w-full lg:w-1/3 mb-6 px-4'>
+                <div className='flex items-center justify-center'>
+                    <AtomImage path={profilePic} className="rounded-full w-full h-full max-w-[200px] max-h-[200px] lg:max-w-full lg:max-h-full" />
                 </div>
             </div>
-            <div className='w-full sm:w-1/2 lg:w-1/3 px-4 mb-6'>
-                <div className='flex flex-col justify-center h-full'>
+            <div className='w-full lg:w-1/3 mb-6 px-4'>
+                <div className='flex flex-col justify-center xl:h-100'>
                     <AtomText type='content' text={shortBio}/>
                     <br></br>
                     <AtomText type='content' text={educationInfo}/>

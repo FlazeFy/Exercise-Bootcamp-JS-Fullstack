@@ -20,7 +20,7 @@ const OrganismsSkill: React.FC<OrganismsSkillProps> = ({ skillItem }) => {
     const [activeIndex, setActiveIndex] = useState(0)
 
     return (
-        <div className="bg-white p-8 px-20">
+        <div className="bg-white p-8 lg:p-20">
             <div className='flex flex-wrap -mx-4'>
                 <div className="w-full md:w-1/2 px-4">
                     {
@@ -32,7 +32,7 @@ const OrganismsSkill: React.FC<OrganismsSkillProps> = ({ skillItem }) => {
                         ))
                     }
                 </div>
-                <div className="w-full md:w-1/2 px-4">
+                <div className="w-full md:w-1/2 px-4 text-center lg:text-start">
                     <AtomText type='title' text='What do I create?'/>
                     <AtomBreakline length={1}/>
                     {
