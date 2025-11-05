@@ -10,7 +10,6 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "
 import Swal from "sweetalert2"
 import { useRouter } from "next/navigation"
 import Link from 'next/link'
-import { create } from 'zustand'
 import { useAuthStore } from "@/store/authStore"
 
 const loginSchema = Yup.object({
