@@ -10,6 +10,8 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "
 import Swal from "sweetalert2"
 import { useRouter } from "next/navigation"
 import Link from 'next/link'
+import { create } from 'zustand'
+import { useAuthStore } from "@/store/authStore"
 
 const loginSchema = Yup.object({
     email: Yup.string().required("Email is required").min(10).test(
@@ -20,29 +22,38 @@ const loginSchema = Yup.object({
     password: Yup.string().required("Password is required").min(6),
 })
 
-type SignUpFormValues = Yup.InferType<typeof loginSchema>
+type SignInFormValues = Yup.InferType<typeof loginSchema>
 
-const OrganismsSignUpForm: React.FC = () => {
+const OrganismsSignInForm: React.FC = () => {
     const router = useRouter()
-    const form = useForm<SignUpFormValues>({ resolver: yupResolver(loginSchema), defaultValues: { email: "", password: "" }})
+    const form = useForm<SignInFormValues>({ resolver: yupResolver(loginSchema), defaultValues: { email: "", password: "" }})
+    const setEmail = useAuthStore((state: any) => state.setEmail)
 
-    const onSubmit = async (values: SignUpFormValues) => {
+    const onSubmit = async (values: SignInFormValues) => {
         try {
-            const res = await axios.post("https://silverkettle-us.backendless.app/api/data/author", {
-                email: values.email, 
-                password: values.password,
-            });
+            const res = await axios.get(`https://silverkettle-us.backendless.app/api/data/author?where=%60email%60%20%3D%20'${values.email}'%20AND%20%60password%60%20%3D%20'${values.password}'`);
             
-            Swal.fire({
-                icon: "success",
-                title: "Done",
-                text: `Welcome author ${res.data.email}!`,
-                confirmButtonText: "Sign In Now!",
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-            }).then((result:any) => {
-                router.push("/signin")
-            })
+            if(res && res.data.length > 0){
+                const email = res.data[0].email
+
+                Swal.fire({
+                    icon: "success",
+                    title: "Done",
+                    text: `Welcome back author ${email}!`,
+                    confirmButtonText: "Explore now!",
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                }).then((result:any) => {
+                    setEmail(email.replace("@gmail.com",""))
+                    router.push("/")
+                })
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "I'm sorry",
+                    text: "Your username or password incorrect",
+                })
+            }
         } catch (err: any) {
             Swal.fire({
                 icon: "error",
@@ -54,10 +65,6 @@ const OrganismsSignUpForm: React.FC = () => {
 
     return (
         <div className="container rounded-2xl space-y-4 m-5 p-5 lg:m-10 lg:p-10 shadow-2xl" style={{ maxWidth: "480px" }}>
-            <Link href="/signin">
-                <Button variant="link" className="bg-red-600 text-white hover:bg-red-700 mb-5">Go to Sign In</Button>
-            </Link>
-            <hr></hr>
             <h1 className="font-bold">Welcome to HotCoffee</h1>
             <h3>Make better coffee</h3>
             <Form {...form}>
@@ -86,13 +93,17 @@ const OrganismsSignUpForm: React.FC = () => {
                     />
                     <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
                         {
-                            form.formState.isSubmitting ? "Let me check first..." : "Become one of Us"
+                            form.formState.isSubmitting ? "Validate your account..." : "Sign In"
                         }
                     </Button>
                 </form>
             </Form>
+            <hr className="mt-5"></hr>
+            <Link href="/signup">
+                <Button variant="link" className="w-full">Don't have account? Register Now</Button>
+            </Link>
         </div>
     )
 }
 
-export default OrganismsSignUpForm
+export default OrganismsSignInForm

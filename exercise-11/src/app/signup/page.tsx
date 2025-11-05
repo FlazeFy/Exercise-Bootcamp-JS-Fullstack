@@ -1,17 +1,17 @@
 "use client"
 
-import OrganismsLoginForm from '@/components/organisms/o_signup_form';
+import OrganismsSignUpForm from '@/components/organisms/o_signup_form';
 import * as React from 'react';
 
-interface ILoginPageProps {
+interface ISignUpPageProps {
 }
 
-const LoginPage: React.FunctionComponent<ILoginPageProps> = (props) => {
+const SignUpPage: React.FunctionComponent<ISignUpPageProps> = (props) => {
     return (
         <div className='flex items-center justify-center min-h-screen'>
-            <OrganismsLoginForm/>
+            <OrganismsSignUpForm/>
         </div>
     )
 };
 
-export default LoginPage;
+export default SignUpPage;

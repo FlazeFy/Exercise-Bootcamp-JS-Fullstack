@@ -1,6 +1,5 @@
 "use client"
 import React from 'react'
-import AtomBreakline from '../atoms/a_breakline'
 import AtomText from '../atoms/a_text'
 
 interface WorkExperienceItem {
