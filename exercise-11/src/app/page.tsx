@@ -1,17 +1,11 @@
-import MoleculesNavbar from "@/components/molecules/m_navbar";
-import OrganismsLastArticle from "@/components/organisms/o_last_article";
+import OrganismsAllArticle from "@/components/organisms/o_all_article";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-amber-50">
-      <MoleculesNavbar/>
-      <div className='flex flex-wrap m-5'>
-        <div className='w-full md:w-full lg:w-1/2 p-1'>
-          <OrganismsLastArticle/>
-        </div>
-        <div className='w-full md:w-full lg:w-1/2 p-1'>
-
-        </div>
+    <div className="min-h-screen bg-amber-50 p-5 lg:p-10">
+      <div className="w-full rounded-2xl space-y-4 p-5 lg:p-10 shadow-2xl bg-white">
+        <h1 className="font-bold">All Article</h1>
+        <OrganismsAllArticle/>
       </div>
     </div>
   );

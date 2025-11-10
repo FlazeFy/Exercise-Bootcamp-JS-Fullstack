@@ -4,10 +4,7 @@ import { Input } from '@/components/ui/input'
 import * as React from 'react';
 import { useAuthStore } from '@/store/authStore';
 
-interface IMoleculesNavbarProps {
-}
-
-const MoleculesNavbar: React.FunctionComponent<IMoleculesNavbarProps> = (props) => {
+const MoleculesNavbar = () => {
     const email = useAuthStore((state: any) => state.email)
 
     return (

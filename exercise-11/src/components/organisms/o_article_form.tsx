@@ -59,7 +59,7 @@ const OrganismsArticleForm: React.FC = () => {
     return (
         <div className="w-full rounded-2xl space-y-4 p-5 lg:p-10 shadow-2xl bg-white">
             <Link href="/">
-                <Button variant="link" className="bg-red-600 text-white hover:bg-red-700 mb-5">Go to Dashboard</Button>
+                <Button variant="link" className="bg-red-600 text-white hover:bg-red-700 mb-5">Go to Home</Button>
             </Link>
             <hr></hr>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
