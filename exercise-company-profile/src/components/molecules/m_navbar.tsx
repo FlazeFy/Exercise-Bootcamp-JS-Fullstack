@@ -15,7 +15,7 @@ const MoleculesNavbar: React.FC<MoleculesNavbarProps> = ({ menuItem, isSignedIn 
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <nav className="flex justify-between items-center p-5 w-full">
+        <nav className="flex justify-between items-center p -5 w-full">
             <div className="hidden md:flex">
                 {
                     menuItem.map((dt, idx) => 
