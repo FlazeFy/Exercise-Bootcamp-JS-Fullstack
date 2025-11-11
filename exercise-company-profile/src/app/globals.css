@@ -1,2 +1,131 @@
 @import "tailwindcss";
 
+body {
+  font-family: 'Poppins, sans-serif';
+}
+html {
+  scroll-behavior: smooth;
+}
+
+:root {   
+  /* Typography */
+  --textXJumbo : 32px;
+  --textJumbo : 24px;
+  --textXLG : 20px;
+  --textLG : 18px;
+  --textXMD : 16px;
+  --textMD : 14px;
+  --textSM : 12.5px;
+  --textXSM : 10px;
+
+  /* Rounded */
+  --roundedCircle : 100%;
+  --roundedJumbo : 30px;
+  --roundedXLG : 24px;
+  --roundedLG : 18px;
+  --roundedMD : 14px;
+  --roundedSM : 12px;
+  --roundedMini : 6px;
+
+  /* Spacing */
+  --spaceJumbo : 35px;
+  --spaceXLG : 24px;
+  --spaceLG : 20px;
+  --spaceXMD : 16px;
+  --spaceMD : 12px;
+  --spaceSM : 10px;
+  --spaceXSM : 8px;
+  --spaceXXSM : 6px;
+  --spaceMini : 4px;
+
+  /* Color Pallete */
+  --primaryColor : #92e1dc;
+  --secondaryColor : #5ba9a5;
+  --successBG : #67bd76;
+  --dangerBG : #f750a0;
+  --warningBG : #FFC352;
+  --infoBG : #67a9d9;
+  --hoverBG : #F2F2F2;
+  --darkColor : #334b4a;
+  --whiteColor : #fff;
+  --shadowColor : #95b1ae;
+}
+
+nav {
+  background: var(--primaryColor);
+  position: sticky;
+  top: 0;
+}
+.nav-link {
+  color: var(--whiteColor);
+  border: 1.75px solid transparent;
+  font-weight: 600;
+  font-size: var(--textLG);
+}
+.nav-link:hover {
+  border: 1.5px solid var(--darkColor);
+}
+button, .nav-link {
+  border-radius: var(--roundedMD);
+  cursor: pointer;
+  padding: var(--spaceMD) var(--spaceLG) !important;
+}
+
+/* Navbar */
+.menu-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 50px;
+  height: 50px;
+  padding: var(--spaceXMD) !important;
+  border-radius: 50%;
+  background: var(--darkColor);
+  color: var(--whiteColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 1000;
+  border: 1.75px solid var(--whiteColor);
+}
+.mobile-menu .nav-link {
+  color: var(--darkColor);
+  margin-bottom: var(--spaceSM);
+}
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none !important;
+  }
+}
+.menu-toggle.open {
+  background: var(--dangerBG);
+  transform: rotate(90deg);
+}
+.mobile-menu {
+  position: fixed;
+  top: 4.5rem; 
+  right: 1rem;
+  left: 1rem;
+  border-radius: 1rem;
+  z-index: 999;
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-slideDown {
+  animation: slideDown 0.25s ease-out;
+}
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
