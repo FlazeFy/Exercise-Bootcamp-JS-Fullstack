@@ -1,6 +1,7 @@
 import OrganismsTestimoni from "@/components/organisms/o_testimoni_top";
 import OrganismsAboutBox from "@/components/organisms/o_about_box";
 import OrganismsWhyUs from "@/components/organisms/o_why_us";
+import OrganismsOurServiceBox from "@/components/organisms/o_our_service_box";
 import AtomBreakline from "@/components/atoms/a_breakline";
 import { faThumbsUp, faLeaf, faPenToSquare, faUserDoctor, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
@@ -55,10 +56,12 @@ export default function Home() {
   ]
 
   return (
-    <div className="flex flex-col bg-white min-h-[100vh] p-5 lg:p-10">
+    <div className="flex flex-col min-h-screen p-5 lg:p-10 lg:max-w-[1440px] lg:mx-auto">
       <OrganismsAboutBox/>
       <AtomBreakline length={2}/>
       <OrganismsWhyUs whyUsItem={whyUsItem}/>
+      <AtomBreakline length={2}/>
+      <OrganismsOurServiceBox/>
       <AtomBreakline length={2}/>
       <OrganismsTestimoni testimoniItem={testimoniItem}/>
     </div>

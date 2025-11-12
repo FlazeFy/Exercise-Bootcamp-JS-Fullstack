@@ -54,6 +54,14 @@ html {
 .bg-primary {
   background: var(--primaryColor);
 }
+.btn {
+  padding: var(--spaceMD) var(--spaceLG);
+  cursor: pointer;
+}
+.btn.link {
+  border-radius: var(--roundedLG);
+  border: 2px solid var(--primaryColor);
+}
 
 /* Navbar */
 nav {
