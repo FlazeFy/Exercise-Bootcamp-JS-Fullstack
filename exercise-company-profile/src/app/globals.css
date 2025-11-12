@@ -51,6 +51,10 @@ html {
   --shadowColor : #95b1ae;
 }
 
+.bg-primary {
+  background: var(--primaryColor);
+}
+
 /* Navbar */
 nav {
   border-bottom: 1.5px solid var(--whiteColor);

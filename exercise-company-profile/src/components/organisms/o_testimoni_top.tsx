@@ -15,7 +15,7 @@ interface OrganismsTestimoniProps {
 
 const OrganismsTestimoni: React.FC<OrganismsTestimoniProps> = ({ testimoniItem }) => {
     return (
-        <div className='py-30 -mx-4 my-3 p-8 lg:p-20 bg-primary text-center'>
+        <div className='py-30 -mx-4 my-3 p-8 lg:p-20 text-center'>
             <AtomText type='title' text='Apa yang mereka katakan?' />
             <AtomBreakline length={1}/>
             <AtomText type='content' text="Berikut adalah beberapa tanggapan dari pelanggan setia kami"/>
