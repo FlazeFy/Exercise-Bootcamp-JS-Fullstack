@@ -4,7 +4,7 @@ interface AtomButton {
   type: string
   text: any
   extraClass?: string
-  action: any
+  action?: any
 }
 
 const AtomButton: React.FC<AtomButton> = ({ type, text, extraClass, action }) => {

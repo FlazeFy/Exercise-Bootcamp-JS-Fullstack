@@ -2,6 +2,7 @@ import OrganismsTestimoni from "@/components/organisms/o_testimoni_top";
 import OrganismsAboutBox from "@/components/organisms/o_about_box";
 import OrganismsWhyUs from "@/components/organisms/o_why_us";
 import OrganismsVisitUsBox from "@/components/organisms/o_visit_us_box";
+import OrganismsPromoBox from "@/components/organisms/o_promo_box";
 import OrganismsOurServiceBox from "@/components/organisms/o_our_service_box";
 import AtomBreakline from "@/components/atoms/a_breakline";
 import { faThumbsUp, faLeaf, faPenToSquare, faUserDoctor, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
@@ -75,6 +76,23 @@ export default function Home() {
     { dayName : 'Sunday', hour: '09:00 - 21:00' },
   ]
 
+  const promoItem = [
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11644.png' },
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11645.png' },
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11647.png' },
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11649.png' },
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11650.png' },
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11651.png' },
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11652.png' },
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11653.png' },
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11654.png' },
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11655.png' },
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11662.png' },
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11665.png' },
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11667.png' },
+    { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11668.png' },
+  ]
+
   return (
     <div className="flex flex-col min-h-screen p-5 lg:p-10 lg:max-w-[1440px] lg:mx-auto">
       <OrganismsAboutBox/>
@@ -82,6 +100,8 @@ export default function Home() {
       <OrganismsWhyUs whyUsItem={whyUsItem}/>
       <AtomBreakline length={2}/>
       <OrganismsOurServiceBox/>
+      <AtomBreakline length={2}/>
+      <OrganismsPromoBox promoItem={promoItem}/>
       <AtomBreakline length={2}/>
       <OrganismsTestimoni testimoniItem={testimoniItem}/>
       <AtomBreakline length={2}/>

@@ -65,6 +65,9 @@ html {
   border-radius: var(--roundedLG);
   border: 2px solid var(--primaryColor);
 }
+.testimoni-box, .testimoni-box img, .why-us-box, .why-us-box .icon {
+  border: 2.75px solid var(--darkColor);
+}
 
 /* Navbar */
 nav {
