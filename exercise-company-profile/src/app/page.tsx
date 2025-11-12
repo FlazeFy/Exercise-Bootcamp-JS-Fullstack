@@ -1,6 +1,7 @@
 import OrganismsTestimoni from "@/components/organisms/o_testimoni_top";
 import OrganismsAboutBox from "@/components/organisms/o_about_box";
 import OrganismsWhyUs from "@/components/organisms/o_why_us";
+import OrganismsVisitUsBox from "@/components/organisms/o_visit_us_box";
 import OrganismsOurServiceBox from "@/components/organisms/o_our_service_box";
 import AtomBreakline from "@/components/atoms/a_breakline";
 import { faThumbsUp, faLeaf, faPenToSquare, faUserDoctor, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
@@ -55,6 +56,25 @@ export default function Home() {
     }
   ]
 
+  const visitItem = [
+    { title: 'VORTA BEAUTY CLINIC PALEMBANG', address: 'Jl.Perintis Kemerdekaan No.12, Palembang.' },
+    { title: 'VORTA BEAUTY CLINIC KELAPA GADING', address: 'Ruko Italian Walk Mall Of Indonesia Blok A No 5-6, Jl. Boulevard Bar. Raya, RT.18/RW.8, Klp. Gading Bar., Kec. Klp. Gading, jakarta, Daerah Khusus Ibukota Jakarta 14240' },
+    { title: 'VORTA BEAUTY CLINIC BANDUNG', address: 'Jl. Sunda No.51, Kb. Pisang, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40112' },
+    { title: 'VORTA BEAUTY CLINIC PIK', address: 'Ruko Golf Island Beach Boulevard Blok B No 9, Pantai Indah Kapuk, Penjaringan, Kamal Muara, Jakarta Utara.' },
+    { title: 'VORTA BEAUTY CLINIC KEMANG', address: 'Jl. Kemang Timur No.66, RT.6/RW.3, Kemang, Bangka, Kec. Mampang Prpt., Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12730' },
+    { title: 'Contact Center', address: '+628118883318' },
+  ]
+
+  const scheduleItem = [
+    { dayName : 'Monday', hour: '09:00 - 21:00' },
+    { dayName : 'Tuesday', hour: '09:00 - 21:00' },
+    { dayName : 'Wednesday', hour: '09:00 - 21:00' },
+    { dayName : 'Thursday', hour: '09:00 - 21:00' },
+    { dayName : 'Friday', hour: '09:00 - 21:00' },
+    { dayName : 'Saturday', hour: '09:00 - 21:00' },
+    { dayName : 'Sunday', hour: '09:00 - 21:00' },
+  ]
+
   return (
     <div className="flex flex-col min-h-screen p-5 lg:p-10 lg:max-w-[1440px] lg:mx-auto">
       <OrganismsAboutBox/>
@@ -64,6 +84,9 @@ export default function Home() {
       <OrganismsOurServiceBox/>
       <AtomBreakline length={2}/>
       <OrganismsTestimoni testimoniItem={testimoniItem}/>
+      <AtomBreakline length={2}/>
+      <OrganismsVisitUsBox visitItem={visitItem} scheduleItem={scheduleItem}/>
+      <AtomBreakline length={2}/>
     </div>
   );
 }

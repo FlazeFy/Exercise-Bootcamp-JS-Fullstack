@@ -46,13 +46,16 @@ html {
   --warningBG : #FFC352;
   --infoBG : #67a9d9;
   --hoverBG : #F2F2F2;
-  --darkColor : #334b4a;
+  --darkColor : #346270;
   --whiteColor : #fff;
   --shadowColor : #95b1ae;
 }
 
 .bg-primary {
   background: var(--primaryColor);
+}
+.bg-dark {
+  background: var(--darkColor);
 }
 .btn {
   padding: var(--spaceMD) var(--spaceLG);
