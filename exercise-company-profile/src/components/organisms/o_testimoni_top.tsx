@@ -16,9 +16,9 @@ interface OrganismsTestimoniProps {
 const OrganismsTestimoni: React.FC<OrganismsTestimoniProps> = ({ testimoniItem }) => {
     return (
         <div className='py-30 -mx-4 my-3 p-8 lg:p-20 bg-primary text-center'>
-            <AtomText type='title' text='What they thinks?' />
+            <AtomText type='title' text='Apa yang mereka katakan?' />
             <AtomBreakline length={1}/>
-            <AtomText type='content' text="Here's some testimoni We get from our beloved customer"/>
+            <AtomText type='content' text="Berikut adalah beberapa tanggapan dari pelanggan setia kami"/>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mt-20 min-h-[400px] items-end'>
                 {
                     testimoniItem.map((dt, idx) => (

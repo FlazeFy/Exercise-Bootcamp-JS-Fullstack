@@ -5,10 +5,10 @@ interface MoleculeFooterProps {}
 
 const MoleculeFooter: React.FC<MoleculeFooterProps> = (props) => {
     return (
-        <footer className="m-5 flex flex-col md:flex-row justify-center md:justify-between items-center border-t border-gray-400 pt-5 text-center md:text-left">
-            <div>
+        <footer className="p-5 flex flex-col md:flex-row justify-center md:justify-between items-center text-center">
+            <div className='md:text-start'>
                 <AtomText type='content-title' text='@2025. All Rights Reserved'/>
-                <AtomText type='content' extraClass='text-secondary' text='Redesign by FlazeFy'/>
+                <AtomText type='content' text='Redesign by FlazeFy'/>
             </div>
             <AtomText type='content-title' text="Made by Vorta Beauty Clinic" />
         </footer>

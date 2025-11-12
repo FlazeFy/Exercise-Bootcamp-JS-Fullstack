@@ -1,4 +1,5 @@
 import OrganismsTestimoni from "@/components/organisms/o_testimoni_top";
+import OrganismsAboutBox from "@/components/organisms/o_about_box";
 
 export default function Home() {
   const testimoniItem = [
@@ -24,6 +25,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col bg-white min-h-[100vh] p-5 lg:p-10">
+      <OrganismsAboutBox/>
       <OrganismsTestimoni testimoniItem={testimoniItem}/>
     </div>
   );

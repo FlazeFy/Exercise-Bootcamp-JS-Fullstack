@@ -8,14 +8,13 @@ interface MenuItem {
 }
 interface MoleculesNavbarProps { 
     menuItem: MenuItem[] 
-    isSignedIn: boolean
 }
 
-const MoleculesNavbar: React.FC<MoleculesNavbarProps> = ({ menuItem, isSignedIn }) => {
+const MoleculesNavbar: React.FC<MoleculesNavbarProps> = ({ menuItem }) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <nav className="flex justify-between items-center p -5 w-full">
+        <nav className="flex justify-between items-center p-5 w-full">
             <div className="hidden md:flex">
                 {
                     menuItem.map((dt, idx) => 
@@ -31,7 +30,7 @@ const MoleculesNavbar: React.FC<MoleculesNavbarProps> = ({ menuItem, isSignedIn 
             </button>
             {
                 isOpen && (
-                    <div className="mobile-menu md:hidden shadow-2xl p-5 flex flex-col items-start animate-slideDown rounded-b-2xl">
+                    <div className="mobile-menu md:hidden shadow-2xl p-5 flex flex-col items-start animate-slideDown">
                         {
                             menuItem.map((dt, idx) => <a key={idx} className="w-full text-left transition-all nav-link" href={dt.target}>{dt.title}</a>)
                         }
