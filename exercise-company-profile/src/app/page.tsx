@@ -2,7 +2,8 @@ import OrganismsTestimoni from "@/components/organisms/o_testimoni_top";
 import OrganismsAboutBox from "@/components/organisms/o_about_box";
 import OrganismsWhyUs from "@/components/organisms/o_why_us";
 import OrganismsVisitUsBox from "@/components/organisms/o_visit_us_box";
-import OrganismsPromoBox from "@/components/organisms/o_promo_box";
+import OrganismsPromoList from "@/components/organisms/o_promo_list";
+import OrganismsDoctorList from "@/components/organisms/o_doctor_list";
 import OrganismsOurServiceBox from "@/components/organisms/o_our_service_box";
 import AtomBreakline from "@/components/atoms/a_breakline";
 import { faThumbsUp, faLeaf, faPenToSquare, faUserDoctor, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
@@ -93,6 +94,21 @@ export default function Home() {
     { title: 'Flash Sale', description:'lorem ipsum', image: '/promo/11668.png' },
   ]
 
+  const doctorItem = [
+    { title: 'dr. Tiffany Chang, Dipl.AAAM', description:'by appointment', image: '/doctor/doctor_1.png' },
+    { title: 'dr. Okki Yana Henry', description:'by schedule', image: '/doctor/doctor_2.png' },
+    { title: 'dr. Afisya Sawki M', description:'by schedule', image: '/doctor/doctor_3.png' },
+    { title: 'dr. Syahirah Gunawan', description:'by schedule', image: '/doctor/doctor_4.png' },
+    { title: 'dr. Chairinnisah Wulandari', description:'by schedule', image: '/doctor/doctor_5.png' },
+    { title: 'dr. G Iranita Dyantika R', description:'by schedule', image: '/doctor/doctor_6.png' },
+    { title: 'dr. Lisa Permatasari', description:'by schedule', image: '/doctor/doctor_7.png' },
+    { title: 'dr. Clarissa Daphna G.', description:'by schedule', image: '/doctor/doctor_8.png' },
+    { title: 'dr. Asyha Kantifa', description:'by schedule', image: '/doctor/doctor_9.png' },
+    { title: 'dr. Aghnia Nadhira Z', description:'by schedule', image: '/doctor/doctor_10.png' },
+    { title: 'dr. Marcello', description:'by schedule', image: '/doctor/doctor_11.png' },
+    { title: 'dr. Christabella P Yulius', description:'by schedule', image: '/doctor/doctor_12.png' },
+  ]
+
   return (
     <div className="flex flex-col min-h-screen p-5 lg:p-10 lg:max-w-[1440px] lg:mx-auto">
       <OrganismsAboutBox/>
@@ -101,9 +117,11 @@ export default function Home() {
       <AtomBreakline length={2}/>
       <OrganismsOurServiceBox/>
       <AtomBreakline length={2}/>
-      <OrganismsPromoBox promoItem={promoItem}/>
+      <OrganismsPromoList promoItem={promoItem}/>
       <AtomBreakline length={2}/>
       <OrganismsTestimoni testimoniItem={testimoniItem}/>
+      <AtomBreakline length={2}/>
+      <OrganismsDoctorList doctorItem={doctorItem}/>
       <AtomBreakline length={2}/>
       <OrganismsVisitUsBox visitItem={visitItem} scheduleItem={scheduleItem}/>
       <AtomBreakline length={2}/>

@@ -4,6 +4,7 @@ import AtomText from "../atoms/a_text"
 import AtomButton from "../atoms/a_button"
 import { faInstagram, faTiktok, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import MoleculesVisitBox from '../molecules/m_visit_box';
 
 interface VisitItem {
     title: string
@@ -28,26 +29,12 @@ const OrganismsVisitUsBox: React.FunctionComponent<IOrganismsVisitUsBoxProps> = 
             <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
                 <div className='p-5'>
                     {
-                        visitItem.slice(0, Math.ceil(visitItem.length / 2)).map((dt,idx) => (
-                            <div key={idx}>
-                                <AtomText type='content-title' text={dt.title} />
-                                <hr className='my-2'/>
-                                <AtomText type='content' text={dt.address} />
-                                <AtomBreakline length={1}/>
-                            </div>
-                        ))
+                        visitItem.slice(0, Math.ceil(visitItem.length / 2)).map((dt,idx) => <MoleculesVisitBox key={idx} title={dt.title} address={dt.address}/>)
                     }
                 </div>
                 <div className='p-5'>
                     {
-                        visitItem.slice(Math.ceil(visitItem.length / 2)).map((dt,idx) => (
-                            <div key={idx}>
-                                <AtomText type='content-title' text={dt.title} />
-                                <hr className='my-2'/>
-                                <AtomText type='content' text={dt.address} />
-                                <AtomBreakline length={1}/>
-                            </div>
-                        ))
+                        visitItem.slice(Math.ceil(visitItem.length / 2)).map((dt,idx) => <MoleculesVisitBox key={idx} title={dt.title} address={dt.address}/>)
                     }
                     <AtomBreakline length={1}/>
                 </div>
