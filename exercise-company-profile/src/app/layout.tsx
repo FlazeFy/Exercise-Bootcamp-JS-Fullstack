@@ -1,7 +1,6 @@
 import MoleculeFooter from "@/components/molecules/m_footer";
 import MoleculesNavbar from "@/components/molecules/m_navbar";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode;}>) {
   const menuItem = [
-    { title: "Home", target: "#homeSection" },
+    { title: "Home", target: "/" },
     { title: "About", target: "#aboutSection" },
     { title: "Treatment", target: "#treatmentSection" },
     { title: "After Care", target: "/after_care" },

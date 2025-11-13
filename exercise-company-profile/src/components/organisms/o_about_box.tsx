@@ -6,7 +6,7 @@ interface IOrganismsAboutBoxProps {
 
 const OrganismsAboutBox: React.FunctionComponent<IOrganismsAboutBoxProps> = (props) => {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 min-h-[80vh]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 min-h-[80vh]" id="aboutSection">
             <div className='flex items-center justify-center w-full h-full'>
                 <img src='/doctor/dr_tiffany_chang.png' alt='/doctor/dr_tiffany_chang.png' className='"w-full h-auto max-h-[80vh] object-contain"'/>
             </div>

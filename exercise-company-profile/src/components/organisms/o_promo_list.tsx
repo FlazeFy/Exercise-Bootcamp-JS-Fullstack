@@ -14,7 +14,7 @@ interface IOrganismsPromoListProps {
 
 const OrganismsPromoList: React.FunctionComponent<IOrganismsPromoListProps> = ({promoItem}) => {
     return (
-        <div className='text-center mt-20'>
+        <div className='text-center mt-20' id="promoSection">
             <AtomText type='title' text='Dapatkan Promo Terbaik' />
             <div className="flex flex-wrap justify-center gap-6 mt-8">
             {

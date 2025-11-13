@@ -23,7 +23,7 @@ interface IOrganismsVisitUsBoxProps {
 
 const OrganismsVisitUsBox: React.FunctionComponent<IOrganismsVisitUsBoxProps> = ({ visitItem, scheduleItem }) => {
     return (
-        <div className='text-center bg-dark text-white p-5 md:p-10 rounded-2xl border-4 border-white shadow-lg'>
+        <div className='text-center bg-dark text-white p-5 md:p-10 rounded-2xl border-4 border-white shadow-lg' id='contactSection'>
             <AtomText type='title' text='Temukan kita di?' />
             <AtomBreakline length={2}/>
             <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
