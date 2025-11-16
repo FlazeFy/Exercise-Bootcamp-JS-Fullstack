@@ -43,7 +43,7 @@ const OrganismsLoginForm: React.FC = () => {
                     allowOutsideClick: false,
                     allowEscapeKey: false,
                 }).then((result:any) => {
-                    setEmail(email.replace("@gmail.com",""))
+                    setEmail(email)
                     router.push("/")
                 })
             } else {

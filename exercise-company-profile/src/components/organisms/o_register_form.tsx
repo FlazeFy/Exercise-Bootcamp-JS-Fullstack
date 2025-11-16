@@ -41,7 +41,7 @@ const OrganismsRegisterForm: React.FC = () => {
                 allowOutsideClick: false,
                 allowEscapeKey: false,
             }).then((result:any) => {
-                router.push("/signin")
+                router.push("/login")
             })
         } catch (err: any) {
             Swal.fire({
@@ -54,8 +54,8 @@ const OrganismsRegisterForm: React.FC = () => {
 
     return (
         <div className="container rounded-2xl space-y-4 m-5 p-5 lg:m-10 lg:p-10 shadow-2xl" style={{ maxWidth: "480px" }}>
-            <Link href="/signin">
-                <Button variant="link" className="bg-red-600 text-white hover:bg-red-700 mb-5">Go to Sign In</Button>
+            <Link href="/login">
+                <Button variant="link" className="bg-danger text-white mb-5">Go to Sign In</Button>
             </Link>
             <hr></hr>
             <h1 className="font-bold">Welcome to Vorta Beauty Clinic</h1>
