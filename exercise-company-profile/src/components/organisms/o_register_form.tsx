@@ -10,6 +10,7 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "
 import Swal from "sweetalert2"
 import { useRouter } from "next/navigation"
 import Link from 'next/link'
+import AtomText from "../atoms/a_text"
 
 const loginSchema = Yup.object({
     email: Yup.string().required("Email is required").min(10).test(
@@ -53,12 +54,12 @@ const OrganismsRegisterForm: React.FC = () => {
     }
 
     return (
-        <div className="container rounded-2xl space-y-4 m-5 p-5 lg:m-10 lg:p-10 shadow-2xl" style={{ maxWidth: "480px" }}>
+        <div className="rounded-2xl space-y-4 p-5 lg:p-10 shadow-2xl bg-white mr-10 w-full md:max-w-[470px]">
             <Link href="/login">
                 <Button variant="link" className="bg-danger text-white mb-5">Go to Sign In</Button>
             </Link>
             <hr></hr>
-            <h1 className="font-bold">Welcome to Vorta Beauty Clinic</h1>
+            <AtomText type='sub-title' text='Welcome to Vorta Beauty Clinic'/>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                     <FormField control={form.control} name="email"

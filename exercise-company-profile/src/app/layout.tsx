@@ -30,7 +30,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body className={`${poppins.variable} ${poppins.className} antialiased`}>
         <MoleculesNavbar menuItem={menuItem}/>
-        {children}
+        <div className="min-h-[90vh]">
+          {children}
+        </div>
         <MoleculeFooter/>
       </body>
     </html>

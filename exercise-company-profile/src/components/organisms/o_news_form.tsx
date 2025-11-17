@@ -26,7 +26,7 @@ const OrganismsNewsForm: React.FC = () => {
     const router = useRouter()
     const form = useForm<NewsFormValues>({ resolver: yupResolver(newsSchema), defaultValues: { title: "", content: "", image:"" }})
     const watchedValues = useWatch({ control: form.control })
-    const email = useAuthStore((state: any) => state.email)
+    const email = localStorage.getItem('emailKey')
 
     const onSubmit = async (values: NewsFormValues) => {
         try {

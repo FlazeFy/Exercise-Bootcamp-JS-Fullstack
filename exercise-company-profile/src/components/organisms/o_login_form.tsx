@@ -10,7 +10,7 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "
 import Swal from "sweetalert2"
 import { useRouter } from "next/navigation"
 import Link from 'next/link'
-import { useAuthStore } from "@/store/authStore"
+import AtomText from "../atoms/a_text"
 
 const loginSchema = Yup.object({
     email: Yup.string().required("Email is required").min(10).test(
@@ -26,7 +26,6 @@ type LoginFormValues = Yup.InferType<typeof loginSchema>
 const OrganismsLoginForm: React.FC = () => {
     const router = useRouter()
     const form = useForm<LoginFormValues>({ resolver: yupResolver(loginSchema), defaultValues: { email: "", password: "" }})
-    const setEmail = useAuthStore((state: any) => state.setEmail)
 
     const onSubmit = async (values: LoginFormValues) => {
         try {
@@ -43,7 +42,7 @@ const OrganismsLoginForm: React.FC = () => {
                     allowOutsideClick: false,
                     allowEscapeKey: false,
                 }).then((result:any) => {
-                    setEmail(email)
+                    localStorage.setItem('emailKey',email)
                     router.push("/")
                 })
             } else {
@@ -63,8 +62,8 @@ const OrganismsLoginForm: React.FC = () => {
     }
 
     return (
-        <div className="container rounded-2xl space-y-4 m-5 p-5 lg:m-10 lg:p-10 shadow-2xl" style={{ maxWidth: "480px" }}>
-            <h1 className="font-bold">Welcome to Vorta Beauty Clinic</h1>
+        <div className="rounded-2xl space-y-4 p-5 lg:p-10 shadow-2xl bg-white mr-10 w-full md:max-w-[470px]">
+            <AtomText type='sub-title' text='Welcome to Vorta Beauty Clinic'/>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                     <FormField control={form.control} name="email"
@@ -97,7 +96,7 @@ const OrganismsLoginForm: React.FC = () => {
                 </form>
             </Form>
             <hr className="mt-5"></hr>
-            <Link href="/signup">
+            <Link href="/register">
                 <Button variant="link" className="w-full">Don't have account? Register Now</Button>
             </Link>
         </div>
