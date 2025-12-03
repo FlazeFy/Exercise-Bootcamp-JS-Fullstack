@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from "express"
 import fs from "fs"
 import path from "path"
+import { randomUUID } from "crypto"
 
 const PORT = 8005
 
@@ -56,6 +57,68 @@ app.get("/api/expense/detail", (req: Request, res: Response) => {
     })
 })
 
+app.post('/api/expense', (req: Request, res: Response) => {
+    // Body
+    const {title, nominal, type, category} = req.body 
+
+    // DB
+    const expensesJson = fs.readFileSync(expensePath,'utf-8')
+    const expenses = JSON.parse(expensesJson)
+
+    // UUID
+    const id = randomUUID()
+
+    // Format date
+    const today = new Date()
+    const date = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`
+
+    // Insert
+    expenses.push({id, title, nominal, type, category, date})
+
+    // Update DB
+    fs.writeFileSync(expensePath, JSON.stringify(expenses))
+
+    // Reponse
+    res.status(201).json({
+        message:"Create expenses successfull",
+        data: {id, title, nominal, type, category, date}
+    })
+})
+
+app.put("/api/expense/:id", (req: Request, res: Response) => {
+    // Body
+    const { id } = req.params
+    const { title, nominal, type, category } = req.body 
+  
+    // DB
+    const expensesJson = fs.readFileSync(expensePath, "utf-8")
+    const expenses = JSON.parse(expensesJson)
+  
+    // Find expense by id
+    const expenseIndex = expenses.findIndex((p: any) => p.id === id)
+    if (expenseIndex === -1) {
+        return res.status(404).json({ message: "Expense not found" })
+    }
+  
+    // Update Data
+    expenses[expenseIndex] = {
+        ...expenses[expenseIndex],
+        title: title ?? expenses[expenseIndex].title,
+        nominal: nominal ?? expenses[expenseIndex].nominal,
+        type: type ?? expenses[expenseIndex].type,
+        category: category ?? expenses[expenseIndex].category,
+    }
+  
+    // Update DB
+    fs.writeFileSync(expensePath, JSON.stringify(expenses, null, 2));
+  
+    // Response
+    res.json({
+        message: "Update expense successful",
+        data: expenses[expenseIndex],
+    });
+});
+
 app.delete("/api/expense/:id", (req: Request, res: Response) => {
     // Param
     const { id } = req.params
@@ -108,6 +171,26 @@ app.get("/api/expense/total/date-range", (req: Request, res: Response) => {
         total_income,
         start,
         end,
+    })
+});
+
+app.get("/api/expense/total/category/:category", (req: Request, res: Response) => {
+    // Param
+    const { category } = req.params
+
+    // DB
+    const expensesJson = fs.readFileSync(expensePath, "utf-8")
+    const expenses = JSON.parse(expensesJson)
+
+    // Filter By Category
+    const total_expense = expenses.filter((dt: any) => dt.type === "expense" && dt.category === category).reduce((sum: number, dt: any) => sum + dt.nominal, 0)
+    const total_income = expenses.filter((dt: any) => dt.type === "income" && dt.category === category).reduce((sum: number, dt: any) => sum + dt.nominal, 0)
+
+    res.status(200).json({
+        message: "Get total expense by category successful",
+        category,
+        total_expense,
+        total_income
     })
 });
 

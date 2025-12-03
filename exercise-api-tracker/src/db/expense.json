@@ -78,5 +78,21 @@
     "type": "expense",
     "category": "food",
     "date": "02-12-2025"
+  },
+  {
+    "id": "27912711-a0ac-4614-b1f0-9b317edb74f2",
+    "title": "Jus Buah Jeruk",
+    "nominal": 15000,
+    "type": "expense",
+    "category": "food",
+    "date": "03-12-2025"
+  },
+  {
+    "id": "1dc030a6-ff78-4140-89e7-91414ce9bc5a",
+    "title": "Jus Buah Melon",
+    "nominal": 16000,
+    "type": "expense",
+    "category": "food",
+    "date": "03-12-2025"
   }
 ]
