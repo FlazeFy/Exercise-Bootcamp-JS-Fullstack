@@ -1,11 +1,13 @@
 import { Request, Response } from "express"
 import { readJsonFile, writeJsonFile } from "../helpers/database"
+import { randomUUID } from "crypto"
 
-const FILE_NAME = "articles.json"
+const ARTICLE_DATA = "articles.json"
+const ACCOUNT_DATA = "accounts.json"
 
 export const getAllArticles = (req: Request, res: Response) => {
     // Database
-    const articles = readJsonFile(FILE_NAME)
+    const articles = readJsonFile(ARTICLE_DATA)
 
     // Filtering Column
     const filtered = articles.map((dt: any) => ({
@@ -32,7 +34,7 @@ export const getArticleById = (req: Request, res: Response) => {
     const { id } = req.params
 
     // Database
-    const articles = readJsonFile(FILE_NAME)
+    const articles = readJsonFile(ARTICLE_DATA)
 
     // Filtering
     const article = articles.find((p: any) => p.id === id)
@@ -50,12 +52,116 @@ export const getArticleById = (req: Request, res: Response) => {
     })
 }
 
+export const createArticle = (req: Request, res: Response) => {
+    // Body
+    const { title, category, content, authorId } = req.body
+
+    // Validation: title length
+    if (!title || title.length < 3) {
+        return res.status(400).json({
+            message: "Title must be at least 3 characters",
+            data: null,
+        })
+    }
+
+    // Validation: authorId must exists
+    const accounts = readJsonFile(ACCOUNT_DATA)
+    const authorExists = accounts.some((acc: any) => acc.id === authorId)
+    if (!authorExists) {
+        return res.status(400).json({
+            message: "Invalid authorId: account not found",
+            data: null,
+        })
+    }
+
+    // Database
+    const articles = readJsonFile(ARTICLE_DATA)
+
+    // Insert
+    const newArticle = {
+        id: randomUUID(),
+        title,
+        category,
+        content,
+        authorId,
+        createdAt: new Date().toISOString(),
+    }
+    articles.push(newArticle)
+
+    // Database
+    writeJsonFile(ARTICLE_DATA, articles)
+
+    // Response
+    res.status(201).json({
+        message: "Create article successful",
+        data: newArticle,
+    })
+}
+
+export const updateArticleById = (req: Request, res: Response) => {
+    // Param & Body
+    const { id } = req.params
+    const { title, category, content, authorId } = req.body
+
+    // Database
+    const articles = readJsonFile(ARTICLE_DATA)
+
+    // Filtering
+    const articleIndex = articles.findIndex((dt: any) => dt.id === id)
+    if (articleIndex === -1) {
+        return res.status(404).json({
+            message: "article not found",
+            data: null,
+        })
+    }
+
+    // Validation: title length
+    if (title && title.length < 3) {
+        return res.status(400).json({
+            message: "Title must be at least 3 characters",
+            data: null,
+        })
+    }
+
+    // Validation: authorId must exists
+    if (authorId) {
+        const accounts = readJsonFile(ACCOUNT_DATA)
+        const authorExists = accounts.some((acc: any) => acc.id === authorId)
+        if (!authorExists) {
+            return res.status(400).json({
+                message: "Invalid authorId: account not found",
+                data: null,
+            })
+        }
+    }
+
+    // Update fields
+    const updatedArticle = {
+        ...articles[articleIndex],
+        title: title ?? articles[articleIndex].title,
+        content: content ?? articles[articleIndex].content,
+        category: category ?? articles[articleIndex].category,
+        authorId: authorId ?? articles[articleIndex].authorId,
+        updatedAt: new Date().toISOString(),
+    }
+    articles[articleIndex] = updatedArticle
+
+    // Database
+    writeJsonFile(ARTICLE_DATA, articles)
+
+    // Response
+    res.status(200).json({
+        message: "Update article successful",
+        data: updatedArticle,
+    })
+}
+
 export const deleteArticleById = (req: Request, res: Response) => {
     // Param
     const { id } = req.params
 
     // Database
-    const articles = readJsonFile(FILE_NAME)
+    const articles = readJsonFile(ARTICLE_DATA)
 
     // Filtering
     const articleIndex = articles.findIndex((dt: any) => dt.id === id)
@@ -67,10 +173,11 @@ export const deleteArticleById = (req: Request, res: Response) => {
         })
     }
 
+    // Delete
     const deleted = articles.splice(articleIndex, 1)
 
     // Database
-    writeJsonFile(FILE_NAME, articles)
+    writeJsonFile(ARTICLE_DATA, articles)
 
     // Response
     res.status(200).json({
