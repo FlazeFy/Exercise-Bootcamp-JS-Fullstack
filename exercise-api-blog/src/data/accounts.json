@@ -1,0 +1,24 @@
+[
+    {
+        "id": "a3c1e1f2-7b64-4e2c-9d4e-12fe2b912001",
+        "name": "John Doe",
+        "email": "john@example.com",
+        "password": "password123",
+        "createdAt": "2025-01-01T09:00:00Z"
+    },
+    {
+        "id": "b8f4c932-51d4-4b89-b29a-92a5ef1c1002",
+        "name": "Alice Smith",
+        "email": "alice@example.com",
+        "password": "password123",
+        "createdAt": "2025-01-05T15:30:00Z"
+    },
+    {
+        "id": "c52f0a41-0e27-4d47-b4cd-cbdbb7fd3003",
+        "name": "Michael Brown",
+        "email": "michael@example.com",
+        "password": "password123",
+        "createdAt": "2025-02-10T08:45:00Z"
+    }
+]
+  
