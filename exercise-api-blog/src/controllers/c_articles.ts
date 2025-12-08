@@ -6,26 +6,53 @@ const ARTICLE_DATA = "articles.json"
 const ACCOUNT_DATA = "accounts.json"
 
 export const getAllArticles = (req: Request, res: Response) => {
+    // Query param
+    const { category, search, authorId } = req.query
+
     // Database
     const articles = readJsonFile(ARTICLE_DATA)
 
-    // Filtering Column
-    const filtered = articles.map((dt: any) => ({
+    // Filtering
+    let filtered = articles
+
+    // Filter by category
+    if (category) {
+        filtered = filtered.filter(
+            (dt: any) => dt.category?.toLowerCase() === String(category).toLowerCase()
+        )
+    }
+
+    // Filter by keyword (title or content)
+    if (search) {
+        const keyword = String(search).toLowerCase()
+        filtered = filtered.filter(
+            (dt: any) => dt.title?.toLowerCase().includes(keyword) || dt.content?.toLowerCase().includes(keyword)
+        )
+    }
+
+    // Filter by authorId
+    if (authorId) {
+        filtered = filtered.filter((dt: any) => String(dt.authorId) === String(authorId))
+    }
+
+    // Select columns
+    const mapped = filtered.map((dt: any) => ({
         id: dt.id,
         title: dt.title,
         category: dt.category,
+        authorId: dt.authorId,
         createdAt: dt.createdAt,
     }))
 
     // Sorting
-    const sorted = filtered.sort(
+    const sorted = mapped.sort(
         (a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     )
 
     // Response
-    res.status(200).json({
-        message: "Get articles successful",
-        data: sorted,
+    res.status(sorted.length > 0 ? 200 : 404).json({
+        message: `Get articles ${sorted.length > 0 ? 'successful' : 'failed'}`,
+        data: sorted.length > 0 ? sorted : null,
     })
 }
 

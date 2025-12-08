@@ -1,24 +1,18 @@
 [
-    {
-        "id": "a3c1e1f2-7b64-4e2c-9d4e-12fe2b912001",
-        "name": "John Doe",
-        "email": "john@example.com",
-        "password": "password123",
-        "createdAt": "2025-01-01T09:00:00Z"
-    },
-    {
-        "id": "b8f4c932-51d4-4b89-b29a-92a5ef1c1002",
-        "name": "Alice Smith",
-        "email": "alice@example.com",
-        "password": "password123",
-        "createdAt": "2025-01-05T15:30:00Z"
-    },
-    {
-        "id": "c52f0a41-0e27-4d47-b4cd-cbdbb7fd3003",
-        "name": "Michael Brown",
-        "email": "michael@example.com",
-        "password": "password123",
-        "createdAt": "2025-02-10T08:45:00Z"
-    }
+  {
+    "id": "230862fb-fdac-4a0a-b804-056899b2cd5e",
+    "name": "Michael Brown",
+    "email": "michael@example.com",
+    "password": "5e82d474ae11794886a9c815e572487c1b0f92575758dc60e1adba72bcb9496f",
+    "salt": "6957333450929ef2a7f6a42570e9e828",
+    "createdAt": "2025-12-08T07:06:35.977Z"
+  },
+  {
+    "id": "811466c7-fcc5-4f80-99a2-313a69bf8e9b",
+    "name": "Leonardho",
+    "email": "tester@gmail.com",
+    "password": "e5eca5289a37afd1314b44b6fc495887542880f53b9f2b90404e97e6521814cb",
+    "salt": "0082a7d84696ecb2d6be6eb4163a8585",
+    "createdAt": "2025-12-08T07:10:19.270Z"
+  }
 ]
-  
